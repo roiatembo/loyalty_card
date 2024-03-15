@@ -7,30 +7,34 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-$dsn = 'mysql:host=localhost;dbname=dithetoc_loyalty';
-$username = 'dithetoc_roia';
-$password = 'rolanga4';
-$pdo = new PDO($dsn, $username, $password);
+$servername = "localhost";
+$username = "dithetoc_roia";
+$password = "rolanga4";
+$dbname = "dithetoc_loyalty";
 
-function generateUniqueNumber() {
-    return mt_rand(100000, 999999);
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+function generateCardNumber($conn) {
+    $uniqueNumber = "";
+    while (true) {
+        $uniqueNumber = mt_rand(100000, 999999);
+
+        $sql = "SELECT * FROM clients WHERE card_number = '$uniqueNumber'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows == 0) {
+            break;
+        }
+    }
+    return $uniqueNumber;
 }
 
-function numberExistsInDatabase($number, $pdo) {
-    $stmt = $pdo->prepare("SELECT COUNT(*) FROM clients WHERE card_number = ?");
-    $stmt->execute([$number]);
-    return $stmt->fetchColumn() > 0;
-}
-
-do {
-    $cardNumber = generateUniqueNumber();
-} while (numberExistsInDatabase($cardNumber, $pdo));
-
-
+// Generate a unique card number
+$cardNumber = generateCardNumber($conn);
 
 
 function printCard($fullName, $cardNumber) {
-    $imageUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=130x130&data=https://theitmogul.co.za&color=e08264&bgcolor=eeecde';
+    $imageUrl = "https://api.qrserver.com/v1/create-qr-code/?size=130x130&data=https://card.theitmogul.co.za/?cardNumber={$cardNumber}&color=000000&bgcolor=eeecde";
 
     $imageData = file_get_contents($imageUrl);
     $filePath = __DIR__.'/assets/img/qr-code.png';
@@ -63,6 +67,24 @@ function printCard($fullName, $cardNumber) {
 if(isset($_POST)) {
     $fullName = $_POST['fullName'];
     $cardName = printCard($fullName, $cardNumber);
+
+    $stmt = $conn->prepare("INSERT INTO clients (full_name, email, phone_number, card_number) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $fullName, $email, $phoneNumber, $cardNumber);
+
+    // Execute the statement
+    $stmt->execute();
+
+    // Check if the statement was successful
+    // if ($stmt->affected_rows > 0) {
+    //     echo "New record created successfully";
+    // } else {
+    //     echo "Error: " . $stmt->error;
+    // }
+
+    // Close the statement and the database connection
+    $stmt->close();
+    $conn->close();
+
     echo $cardName;
     
 }

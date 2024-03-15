@@ -101,9 +101,10 @@ main {
 }
 
 .form-section {
-  display: flex;
+  display: grid;
+  grid-auto-flow: column;
   justify-content: center;
-  gap: 20px;
+  grid-template-columns: 600px 300px;
 }
 
 .form-section div form {
@@ -142,6 +143,10 @@ main {
 
 .form-image {
   max-width: 260px;
+}
+
+.form-image img {
+  border-radius: 25px;
 }
 
 .loader-section {
@@ -188,6 +193,23 @@ main {
   padding: 20px 50px;
 }
 
+footer {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  background-color: black;
+  padding: 40px 0px;
+}
+
+footer div {
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+}
+
+footer div span {
+  margin-left: 15px;
+}
 
 /*--------------------------------------------------------------
   # Responsiveness
@@ -207,4 +229,10 @@ main {
   .form-image {
     display: none;
   }
+}
+
+@media (max-width: 600px) {
+ footer div span {
+  display: none;
+ }
 }

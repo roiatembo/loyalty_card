@@ -66,6 +66,8 @@ function printCard($fullName, $cardNumber) {
 
 if(isset($_POST)) {
     $fullName = $_POST['fullName'];
+    $email = $_POST["email"];
+    $phoneNumber = $_POST["phoneNumber"];
     $cardName = printCard($fullName, $cardNumber);
 
     $stmt = $conn->prepare("INSERT INTO clients (full_name, email, phone_number, card_number) VALUES (?, ?, ?, ?)");
@@ -73,13 +75,6 @@ if(isset($_POST)) {
 
     // Execute the statement
     $stmt->execute();
-
-    // Check if the statement was successful
-    // if ($stmt->affected_rows > 0) {
-    //     echo "New record created successfully";
-    // } else {
-    //     echo "Error: " . $stmt->error;
-    // }
 
     // Close the statement and the database connection
     $stmt->close();

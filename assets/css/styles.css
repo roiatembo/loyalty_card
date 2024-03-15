@@ -141,6 +141,14 @@ main {
   cursor: pointer;
 }
 
+.input-error {
+  border-color: red;
+}
+
+.input-valid {
+  border-color: green;
+}
+
 .form-image {
   max-width: 260px;
 }
@@ -209,6 +217,25 @@ footer div {
 
 footer div span {
   margin-left: 15px;
+}
+
+.client-details {
+  display: flex;
+}
+
+.columns {
+  max-width: 5px;
+}
+
+.category {
+  font-weight: bold;
+  font-family: Poppins;
+  font-size: 20px;
+}
+
+.client-info {
+  font-size: 20px;
+  margin-left: 10px;
 }
 
 /*--------------------------------------------------------------

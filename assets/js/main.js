@@ -43,22 +43,25 @@ $('input[name="email"]').on("keydown", function (event) {
   var valid = isValidEmail(emailValue);
   if (valid == true) {
     $(this).removeClass("input-error");
-    $(this).addClass("input-valid")
+    $(this).addClass("input-valid");
   }
 });
 
 $("#phoneNumber").on("keyup", function (event) {
-  var phoneValue = $(this).val()
-  
+  var phoneValue = $(this).val();
+
   if (phoneValue.length == 4) {
     if (phoneValue[3] != " ") {
-      $(this).val(phoneValue.substring(0, 3)+ " " + phoneValue[3])
+      $(this).val(phoneValue.substring(0, 3) + " " + phoneValue[3]);
     }
   }
 
   if (phoneValue.length == 8) {
     if (phoneValue[7] != " ") {
-      $(this).val(phoneValue.substring(0, 7)+ " " + phoneValue[7])
+      $(this).val(phoneValue.substring(0, 7) + " " + phoneValue[7]);
     }
   }
-})
+});
+
+const paramsObject = Object.fromEntries(urlParams.entries());
+console.log(paramsObject["cardNumber"]);

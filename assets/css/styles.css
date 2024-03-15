@@ -93,7 +93,7 @@ main {
 
 .heading {
   text-align: center;
-  padding: 80px 0;
+  padding: 80px 0 30px;
 }
 
 .heading p {
@@ -221,10 +221,16 @@ footer div span {
 
 .client-details {
   display: flex;
+  justify-content: center;
+  gap: 50px;
 }
 
 .columns {
   max-width: 5px;
+}
+
+.row {
+  margin-top: 30px;
 }
 
 .category {
@@ -238,6 +244,27 @@ footer div span {
   margin-left: 10px;
 }
 
+.add-a-visit {
+  display: block;
+}
+
+button {
+  background-color: var(--primary);
+  color: white;
+  cursor: pointer;
+  border: solid 1px var(--primary);
+  border-radius: 5px;
+  font-family: Poppins;
+  margin-top: 40px;
+  font-size: 16px;
+  padding: 20px 40px;
+  text-align: center;
+}
+
+button:hover {
+  background-color: white;
+  color: var(--primary);
+}
 /*--------------------------------------------------------------
   # Responsiveness
   --------------------------------------------------------------*/

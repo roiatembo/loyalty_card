@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+        <meta
+          name="description"
+          content="Sign up for Miss V's Membership Card"
+        />
+    
+        <title>Miss V's Loyalty Card</title>
+
+        <!-- Vendor CSS -->
+
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+         <!-- Main CSS -->
+        <link href="assets/css/styles.css" rel="stylesheet" />
+
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
+    </head>
+
+</head>
+
+<body>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <nav class="navbar">
+        <div class="left-navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/img/missvlogo.png" alt="logo" />
+                </a>
+            </div>
+        </div>
+        <div class="right-navbar">
+            <i class='bx bxl-instagram bx-md'></i>
+            <i class='bx bxl-whatsapp bx-md' ></i>
+            <i class='bx bxl-facebook bx-md' ></i>
+        </div>
+    </nav>
+    </header>
+    <!-- ======= End of Header ======= -->
+
+    <!-- ======= Main Section ======= -->
+    <main>
+        <div class="heading">
+            <h1>Sign UP For Loyalty Card</h1>
+            <p>Join our loyalty program and start earning rewards today! Our loyalty card offers exclusive benefits to our valued customers, including discounts on future purchases, special promotions. Every time you visit us, simply present your loyalty card. Sign up now to enjoy these perks and more!</p>
+        </div>
+
+        <div class="form-section">
+            <div>
+                <form id="loyaltyForm" action="" onsubmit="event.preventDefault()">
+                    <div class="form-group">
+                        <label>full name</label>
+                        <input type="text" id="name" name="fullName" placeholder="Name" />
+                    </div>
+                    <div class="form-group">
+                        <label>email address</label>
+                        <input type="email" id="email" name="email" placeholder="Email" />
+                    </div>
+                    <div class="form-group">
+                        <label>phone number</label>
+                        <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Phone" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" id="submit" value="Submit" />
+                    </div>
+                </form>
+            </div>
+            <div class="form-image">
+                <img src="assets/img/nails.png" alt="Nail Design" />
+            </div>
+        </div>
+        <div class="loader-section">
+            <div class="loader"></div>
+        </div> 
+
+        <div class="form-posting">
+            <span>Congratulations your card is ready, <a href='${response}'>click here</a> to download</span>
+        </div>
+    </main>
+    <!-- ======= End of Main Section ======= -->
+<script src="assets/js/main.js"></script>
+</body>
+</html>

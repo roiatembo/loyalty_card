@@ -1,0 +1,210 @@
+/**
+* Author: Roia L Tembo
+**/
+
+/*--------------------------------------------------------------
+# Fonts
+--------------------------------------------------------------*/
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/*--------------------------------------------------------------
+# Variable Declarations
+--------------------------------------------------------------*/
+
+:root {
+  --secondary: #402a84;
+  --primary: #db6274;
+}
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+
+img {
+  max-width: 100%;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+}
+
+a {
+  color: var(--primary);
+}
+
+ul {
+  padding: 0px;
+}
+
+p {
+  margin: 0px;
+  padding: 0px;
+}
+
+h1 {
+  font-family: "Playfair Display";
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Open Sans", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  margin-bottom: 40px;
+}
+/*--------------------------------------------------------------
+  # Typography
+  --------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+  # Navbar
+  --------------------------------------------------------------*/
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--secondary);
+  color: var(--primary);
+  padding: 10px 40px;
+}
+
+.right-navbar {
+  display: flex;
+  gap: 10px;
+}
+
+.bx {
+  cursor: pointer;
+}
+
+.logo {
+  width: 130px;
+}
+
+.heading {
+  text-align: center;
+  padding: 80px 0;
+}
+
+.heading p {
+  padding: 0px clamp(20px, -66px + 26.875vi, 450px);
+}
+
+.form-section {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.form-section div form {
+  padding: 48px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-family: Poppins;
+  font-size: 13px;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"] {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.form-group input[type="submit"] {
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-image {
+  max-width: 260px;
+}
+
+.loader-section {
+  display: flex;
+  justify-content: center;
+}
+
+
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  display: grid;
+}
+.loader::before,
+.loader::after {    
+  content:"";
+  grid-area: 1/1;
+  --c:no-repeat radial-gradient(farthest-side,#25b09b 92%,#0000);
+  background: 
+    var(--c) 50%  0, 
+    var(--c) 50%  100%, 
+    var(--c) 100% 50%, 
+    var(--c) 0    50%;
+  background-size: 12px 12px;
+  animation: l12 1s infinite;
+}
+.loader::before {
+  margin: 4px;
+  filter: hue-rotate(45deg);
+  background-size: 8px 8px;
+  animation-timing-function: linear
+}
+
+@keyframes l12 { 
+  100%{transform: rotate(.5turn)}
+}
+
+.form-posting {
+  display: none;
+  background-color: var(--secondary);
+  color: white;
+  text-align: center;
+  margin: 0px clamp(10px, -98px + 33.75vi, 550px);
+  padding: 20px 50px;
+}
+
+
+/*--------------------------------------------------------------
+  # Responsiveness
+  --------------------------------------------------------------*/
+
+/* Mobile Screens (>1000px) */
+
+@media (max-width: 999px) {
+  .logo {
+    width: 80px;
+  }
+
+  .form-section {
+    display: block;
+  }
+
+  .form-image {
+    display: none;
+  }
+}

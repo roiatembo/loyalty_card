@@ -245,17 +245,20 @@ footer div span {
 }
 
 .add-a-visit {
-  display: block;
+  /* display: block; */
+  /* margin: auto; */
 }
 
 button {
+  display: block;
+  margin: auto;
   background-color: var(--primary);
   color: white;
   cursor: pointer;
   border: solid 1px var(--primary);
   border-radius: 5px;
   font-family: Poppins;
-  margin-top: 40px;
+  margin-top: 60px;
   font-size: 16px;
   padding: 20px 40px;
   text-align: center;

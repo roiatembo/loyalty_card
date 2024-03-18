@@ -34,7 +34,7 @@ $cardNumber = generateCardNumber($conn);
 
 
 function printCard($fullName, $cardNumber) {
-    $imageUrl = "https://api.qrserver.com/v1/create-qr-code/?size=130x130&data=https://card.theitmogul.co.za/?cardNumber={$cardNumber}&color=000000&bgcolor=eeecde";
+    $imageUrl = "https://api.qrserver.com/v1/create-qr-code/?size=130x130&data=https://card.theitmogul.co.za?cardNumber={$cardNumber}&color=000000&bgcolor=eeecde";
 
     $imageData = file_get_contents($imageUrl);
     $filePath = __DIR__.'/assets/img/qr-code.png';

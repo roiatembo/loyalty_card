@@ -60,6 +60,7 @@ h6 {
 
 main {
   margin-bottom: 40px;
+  padding-top: 80px;
 }
 /*--------------------------------------------------------------
   # Typography
@@ -91,9 +92,13 @@ main {
   width: 130px;
 }
 
+.card-details {
+  display: none;
+}
+
 .heading {
   text-align: center;
-  padding: 80px 0 30px;
+  padding-bottom: 30px;
 }
 
 .heading p {
@@ -225,10 +230,6 @@ footer div span {
   gap: 50px;
 }
 
-.columns {
-  max-width: 5px;
-}
-
 .row {
   margin-top: 30px;
 }
@@ -277,6 +278,16 @@ button:hover {
 @media (max-width: 999px) {
   .logo {
     width: 80px;
+  }
+
+  .client-details {
+    display: block;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .form-section {

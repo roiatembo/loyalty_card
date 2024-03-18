@@ -63,5 +63,50 @@ $("#phoneNumber").on("keyup", function (event) {
   }
 });
 
-const paramsObject = Object.fromEntries(urlParams.entries());
-console.log(paramsObject["cardNumber"]);
+const urlParams = new URLSearchParams(window.location.search);
+
+function getClientDetails (cardNumber) {
+  console.log("maybe")
+  $.ajax({
+    url: "clientInfo.php",
+    type: "POST",
+    data: { cardNumber: cardNumber },
+    success: function (response) {
+      var response = JSON.parse(response);
+      var rewardEarned = response["reward_earned"];
+      var points = parseInt(response["points"])
+      $("#fullName").text(response["full_name"]);
+      $("#email").text(response["email"]);
+      $("#phoneNumber").text(response["phone_number"]);
+      $("#cardNumber").text(response["card_number"]);
+      $("#points").text(points);
+
+      if (rewardEarned == "0") {
+        $("#rewardEarned").text("None")
+      } else {
+        $("#rewardEarned").text("Free Manicure")
+      }
+
+      if (points > 0) {
+        if (points%90 !== 0 ) {
+          $("#pointsInfo").text(`${90- (points%90)} points away from your next reward`)
+        } else {
+          $("#pointsInfo").text(`You Qualify For A Free Manicure On Your Next Appointment`)
+        }
+      } else {
+        $("#pointsInfo").text(`90 points away from your next reward`)
+      }
+
+    },
+    error: function (error) {
+      $(".loader").hide();
+      console.log(error);
+    },
+  });
+}
+
+$("#cardNumberForm").submit(function(event) {
+  event.preventDefault();
+  var cardNumber = $("#cardNumberInput").val();
+  getClientDetails(cardNumber);
+})

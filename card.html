@@ -48,43 +48,44 @@
 
     <!-- ======= Main Section ======= -->
     <main>
+    <div class="card-details">
         <div class="heading">
             <h1>Card Details</h1>
-            <p>60 points away from your next reward</p>
+            <p id="pointsInfo"></p>
     </div>
 
     <div class="client-details">
         <div class="column">
             <div class="row">
                 <span class="category">Client Name: </span>
-                <span class="client-info">Roia Tembo</span>
+                <span class="client-info" id="fullName" ></span>
             </div>
 
             <div class="row">
                 <span class="category">Client Email: </span>
-                <span class="client-info">roiatembo@gmail.com</span>
+                <span class="client-info" id="email"></span>
             </div>
 
             <div class="row">
                 <span class="category">Points: </span>
-                <span class="client-info">150</span>
+                <span class="client-info" id="points"></span>
             </div>
         </div>
 
         <div class="column">
             <div class="row">
                 <span class="category">Phone Number: </span>
-                <span class="client-info">072 566 9488</span>
+                <span class="client-info" id="phoneNumber"></span>
             </div>
 
             <div class="row">
                 <span class="category">Card Number: </span>
-                <span class="client-info">123456</span>
+                <span class="client-info" id="cardNumber"></span>
             </div>
 
             <div class="row">
                 <span class="category">Rewards: </span>
-                <span class="client-info">None</span>
+                <span class="client-info" id="rewardEarned"></span>
             </div>
         </div>
     </div>
@@ -99,6 +100,24 @@
         <div class="form-posting">
             <span>Congratulations your card is ready, <a href='${response}'>click here</a> to download</span>
         </div>
+    </div>
+
+    <div class="form-section">
+        <div>
+            <form id="cardNumberForm" action="" onsubmit="event.preventDefault()">
+                <div class="form-group">
+                    <label>Card Number</label>
+                    <input type="text" id="cardNumberInput" name="cardNumber" placeholder="123456" required/>
+                </div>
+                <div class="form-group">
+                    <input type="submit" id="submitCardNumber" value="Submit" />
+                </div>
+            </form>
+        </div>
+        <div class="form-image">
+            <img src="assets/img/nails.png" alt="Nail Design" />
+        </div>
+    </div>
     </main>
     <!-- ======= End of Main Section ======= -->
 
